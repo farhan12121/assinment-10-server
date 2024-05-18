@@ -46,7 +46,7 @@ async function run() {
             res.send(result);
         })
 
-
+// Specific data added by single user
         app.get('/craft/:email', async (req, res) => {
 
             const result = await craftCollection.find({ email: req.params.email }).toArray();
@@ -74,6 +74,8 @@ async function run() {
             res.send(result)
         })
 
+
+        // Put method
         app.put('/crafts/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
