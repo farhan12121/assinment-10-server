@@ -40,6 +40,13 @@ async function run() {
         });
 
 
+        app.post('/craft', async (req, res) => {
+            const addCraft = req.body;
+            const result = await craftCollection.insertOne(addCraft);
+            res.send(result);
+        })
+
+
         app.get('/craft/:email', async (req, res) => {
 
             const result = await craftCollection.find({ email: req.params.email }).toArray();
@@ -48,11 +55,7 @@ async function run() {
 
 
 
-        app.post('/craft', async (req, res) => {
-            const addCraft = req.body;
-            const result = await craftCollection.insertOne(addCraft);
-            res.send(result);
-        })
+
 
         app.get('/crafts/:id', async (req, res) => {
             const id = req.params.id;
@@ -61,7 +64,7 @@ async function run() {
             res.send(result)
         })
 
-
+// Delete Method
 
         app.delete('/craft/:id', async (req, res) => {
             const id = req.params.id;
@@ -89,7 +92,7 @@ async function run() {
                     stock: updateCraft.stock,
                 }
             }
-            const result = await craftCollection.updateOne(query,craft,option);
+            const result = await craftCollection.updateOne(query, craft, option);
             res.send(result)
         })
 
