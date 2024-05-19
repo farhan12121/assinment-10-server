@@ -92,6 +92,8 @@ async function run() {
                     customization: updateCraft.customization,
                     time: updateCraft.time,
                     stock: updateCraft.stock,
+
+                    
                 }
             }
             const result = await craftCollection.updateOne(query, craft, option);
