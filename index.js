@@ -28,6 +28,7 @@ const client = new MongoClient(uri, {
 
 
 const craftCollection = client.db('craftDb').collection('craft')
+const subCategoryCollection = client.db('craftDb').collection('subCategory')
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -55,7 +56,7 @@ async function run() {
 
 
 
-
+// dynamic rout for view details cart
 
         app.get('/crafts/:id', async (req, res) => {
             const id = req.params.id;
