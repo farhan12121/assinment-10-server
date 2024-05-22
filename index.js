@@ -41,7 +41,7 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result)
         });
-
+// post api
 
         app.post('/craft', async (req, res) => {
             const addCraft = req.body;
