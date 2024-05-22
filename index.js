@@ -26,8 +26,11 @@ const client = new MongoClient(uri, {
 });
 
 
-
+// Sub Category  collection
 const subCategoryCollection = client.db('craftDb').collection('subCategory')
+
+
+// craft collection
 const craftCollection = client.db('craftDb').collection('craft')
 async function run() {
     try {
@@ -52,8 +55,8 @@ async function run() {
             const result = await craftCollection.find({ email: req.params.email }).toArray();
             res.send(result)
         });
-
-        app.get('/crafts/:subCategory', async (req, res) => {
+// Sub category api
+        app.get('/crafted/:subCategory', async (req, res) => {
             const result = await craftCollection.find({ subCategory: req.params.subCategory }).toArray();
             res.send(result)
         })
